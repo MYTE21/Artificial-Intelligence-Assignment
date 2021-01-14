@@ -102,12 +102,14 @@ if __name__ == "__main__":
 
     my_turn = False
     move_val = 0
+    x_move_done = []
+    y_move_done = []
 
     while is_moves_left(tic_toc_toe_board):
         if my_turn:
             x = int(input("Enter X : "))
             y = int(input("Enter Y : "))
-            if x > 2 or x < 0 or y > 2 or y < 0:
+            if x > 2 or x < 0 or y > 2 or y < 0 or x_move_done.count(x) > 0 or y_move_done.count(y) > 0:
                 print("Wrong value ... Play again ...!")
                 continue
             tic_toc_toe_board[x][y] = "o"
@@ -119,6 +121,8 @@ if __name__ == "__main__":
             tic_toc_toe_board[x][y] = "x"
 
         my_turn = not my_turn
+        x_move_done.append(x)
+        y_move_done.append(y)
         display_board(tic_toc_toe_board)
         if move_val == 10:
             print("AI, wins the match ...!")
