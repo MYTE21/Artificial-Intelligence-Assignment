@@ -107,6 +107,9 @@ if __name__ == "__main__":
         if my_turn:
             x = int(input("Enter X : "))
             y = int(input("Enter Y : "))
+            if x > 2 or x < 0 or y > 2 or y < 0:
+                print("Wrong value ... Play again ...!")
+                continue
             tic_toc_toe_board[x][y] = "o"
         else:
             best_moves, move_val = find_best_move(tic_toc_toe_board)
